@@ -24,13 +24,15 @@ function BrowserLazyLoading() {
   );
 
   const fetchImages = async () => {
-    const images = await fetch("http://localhost:9000/images");
+    const images = await fetch(
+      "https://lazybackendservice.onrender.com/images"
+    );
 
     if (images) {
       setLoading(false);
     }
 
-    setImagess(await images.json());
+    setImagess((await images.json()).images);
     console.log("Images: ", await images.json());
   };
 
@@ -61,7 +63,7 @@ function BrowserLazyLoading() {
             //width and height on images are required for the browser to be able to calculate the viewport
             <img
               key={url.name}
-              src={`http://localhost:9000/${url.name}`}
+              src={`https://lazybackendservice.onrender.com/${url.name}`}
               loading="eager"
               alt="image"
               height="500"

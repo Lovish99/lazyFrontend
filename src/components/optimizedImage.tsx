@@ -33,7 +33,7 @@ function OptimizedImage(props: IOptimizedImageProps) {
     setLoadStarted(true);
   };
 
-  const url = `http://localhost:9000/${image.name}`;
+  const url = `https://lazybackendservice.onrender.com/${image.name}`;
 
   return (
     <ImageWrapper>

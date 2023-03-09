@@ -30,12 +30,14 @@ function BlurHashLazyLoading() {
   );
 
   const fetchImages = async () => {
-    const images = await fetch("http://localhost:9000/images");
+    const images = await fetch(
+      "https://lazybackendservice.onrender.com/images"
+    );
     console.log(images);
     if (images) {
       setLoading(false);
     }
-    setImages(await images.json());
+    setImages((await images.json()).images);
 
     console.log("Images: ", await images.json());
   };
